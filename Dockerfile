@@ -3,7 +3,7 @@ FROM python:3.11-slim AS base
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/app
+    PYTHONPATH=/app/mcdonalds_scraper
 
 WORKDIR /app
 
@@ -26,6 +26,6 @@ RUN pip install -r requirements/base.txt
 # Copy the source code
 COPY . .
 
-EXPOSE 8000
+COPY commands/ commands/
 
-CMD uvicorn mcdonalds_scraper.api.main:app --reload --host 0.0.0.0
+RUN chmod +x commands/entrypoint.sh

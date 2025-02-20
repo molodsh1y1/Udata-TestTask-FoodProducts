@@ -3,7 +3,7 @@ services:
         restart: always
         build: .
         container_name: web-container
-        command: uvicorn mcdonalds_scraper.api.main:app --reload --host 0.0.0.0
+        command: ["/bin/bash", "/app/commands/entrypoint.sh"]
         ports:
           - "8000:8000"
         volumes:
