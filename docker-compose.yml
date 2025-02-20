@@ -1,0 +1,10 @@
+services:
+    web:
+        restart: always
+        build: .
+        container_name: web-container
+        command: ["/bin/bash", "/app/commands/entrypoint.sh"]
+        ports:
+          - "8000:8000"
+        volumes:
+            - .:/app

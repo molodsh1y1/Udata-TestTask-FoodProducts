@@ -1,0 +1,27 @@
+# .ruff.toml
+
+# Set the maximum line length (default is 88, matching Black)
+line-length = 88
+
+# Linting configuration
+[lint]
+# Enable specific linting rules
+select = [
+    "E",  # Pycodestyle errors
+    "F",  # Pyflakes
+    "W",  # Pycodestyle warnings
+    "I",  # Isort (import sorting)
+    "C",  # flake8-comprehensions
+    "B",  # flake8-bugbear
+    "UP", # pyupgrade
+    "PL", # pylint
+]
+
+# Ignore specific linting rules
+ignore = [
+    "E203",  # Ignore whitespace before ':' (conflicts with Black)
+    "E501",  # Ignore line length issues (handled by formatter)
+    "UP028",  # Ignore unnecessary parentheses
+    "F401",  # Ignore unused imports
+    "UP031", # Ignore unnecessary lambda
+]

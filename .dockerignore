@@ -1,0 +1,28 @@
+# virtual environment
+.venv/
+
+# ignore cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# ignore ide files
+.idea/
+
+# ignore logs
+*.log
+
+# ignore docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# ignore git files
+.git/
+.gitignore
+
+# Ignore Scrapy cache and generated files
+.scrapy/
+output/
+data/
+*.json
