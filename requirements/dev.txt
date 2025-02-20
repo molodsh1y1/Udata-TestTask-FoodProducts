@@ -1,0 +1,4 @@
+-r base.txt
+
+ipython==8.32.0
+isort==6.0.0
