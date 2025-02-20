@@ -4,8 +4,6 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 import random
 
-# useful for handling different item types with a single interface
-from itemadapter import ItemAdapter, is_item
 from scrapy import signals
 
 from mcdonalds_scraper.settings import USER_AGENTS
