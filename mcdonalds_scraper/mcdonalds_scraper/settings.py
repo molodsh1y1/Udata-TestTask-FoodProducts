@@ -1,6 +1,5 @@
 from pathlib import Path
 
-
 # Scrapy settings for mcdonalds_scraper project
 #
 # For simplicity, this file contains only settings considered important or
@@ -65,9 +64,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    "mcdonalds_scraper.pipelines.McdonaldsScraperPipeline": 300,
-# }
+ITEM_PIPELINES = {
+   "mcdonalds_scraper.pipelines.McdonaldScraperPipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
