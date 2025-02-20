@@ -1,3 +1,5 @@
+from typing import Any
+
 from pydantic import BaseModel
 
 
@@ -12,3 +14,7 @@ class MenuItemSchema(BaseModel):
     sugar: float | None
     salt: float | None
     portion: int | None
+
+
+class ProductFieldResponseSchema(BaseModel):
+    value: Any

@@ -26,6 +26,7 @@ class McdonaldScraperPipeline:
             "unsaturated_fats",
             "sugar",
             "salt",
+            "portion",
         ]
 
         for field in numeric_fields:

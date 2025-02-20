@@ -1,9 +1,9 @@
 from typing import Any
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, status
 
 from api.crud import get_product_by_name
-from api.schemas import MenuItemSchema
+from api.schemas import MenuItemSchema, ProductFieldResponseSchema
 from api.utils import MenuDataLoader
 from mcdonalds_scraper.settings import FEED_URI
 
@@ -105,6 +105,7 @@ def read_product(product_name: str) -> MenuItemSchema:
 
 @app.get(
     "/products/{product_name}/{product_field}/",
+    response_model=ProductFieldResponseSchema,
     description="Get product field by name",
     responses={
         200: {
@@ -129,4 +130,10 @@ def read_product(product_name: str) -> MenuItemSchema:
 )
 def read_product_field(product_name: str, product_field: str) -> Any:
     product = get_product_by_name(product_name, menu_data)
-    return getattr(product, product_field, None)
+    if not hasattr(product, product_field):
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Product field {product_field} not found",
+        )
+    value = getattr(product, product_field)
+    return ProductFieldResponseSchema(value=value)
