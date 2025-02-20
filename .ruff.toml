@@ -21,4 +21,7 @@ select = [
 ignore = [
     "E203",  # Ignore whitespace before ':' (conflicts with Black)
     "E501",  # Ignore line length issues (handled by formatter)
+    "UP028",  # Ignore unnecessary parentheses
+    "F401",  # Ignore unused imports
+    "UP031", # Ignore unnecessary lambda
 ]
