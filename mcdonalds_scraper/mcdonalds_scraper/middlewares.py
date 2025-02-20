@@ -2,10 +2,28 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import random
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter, is_item
 from scrapy import signals
+
+from mcdonalds_scraper.settings import USER_AGENTS
+
+
+class ShowHeadersMiddleware:
+    def process_request(self, request, spider):
+        spider.logger.info(f"Request Headers: {request.headers}")
+
+    def process_response(self, request, response, spider):
+        spider.logger.info(f"Response Headers: {response.headers.getlist('Set-Cookie')}")
+        return response
+
+
+class RotateUserAgentMiddleware:
+    def process_request(self, request, spider):
+        user_agent = random.choice(USER_AGENTS)
+        request.headers["User-Agent"] = user_agent
 
 
 class McdonaldsScraperSpiderMiddleware:

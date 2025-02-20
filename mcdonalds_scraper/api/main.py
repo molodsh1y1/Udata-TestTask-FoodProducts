@@ -7,7 +7,6 @@ from api.schemas import MenuItemSchema
 from api.utils import MenuDataLoader
 from mcdonalds_scraper.settings import FEED_URI
 
-
 loader = MenuDataLoader(file_path=FEED_URI)
 menu_data = loader.get_menu_data()
 
