@@ -3,10 +3,18 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
 
-import scrapy
+from dataclasses import dataclass
 
 
-class McdonaldsScraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+@dataclass
+class McDonaldMenuItem:
+    name: str
+    description: str
+    calories: int
+    fats: float
+    carbs: float
+    proteins: float
+    unsaturated_fats: float
+    sugar: float
+    salt: float
+    portion: int

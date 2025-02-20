@@ -1,3 +1,6 @@
+from pathlib import Path
+
+
 # Scrapy settings for mcdonalds_scraper project
 #
 # For simplicity, this file contains only settings considered important or
@@ -90,3 +93,16 @@ ROBOTSTXT_OBEY = True
 # Set settings whose default value is deprecated to a future-proof value
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+BASE_DIR = Path(__file__).resolve().parent
+FEED_URI = str(BASE_DIR / "data" / "mcdonalds_menu.json")
+FEEDS = {
+    FEED_URI: {
+        "format": "json",
+        "encoding": "utf8",
+        "store_empty": False,
+        "fields": None,
+        "indent": 4,
+        "overwrite": True,
+    }
+}
